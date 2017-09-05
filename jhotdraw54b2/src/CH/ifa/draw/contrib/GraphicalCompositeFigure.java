@@ -321,7 +321,7 @@ public class GraphicalCompositeFigure extends CompositeFigure implements Layouta
 		if (listener() != null) {
 			if (includes(e.getFigure())) {
 				Rectangle r = invalidateRectangle(displayBox());
-				listener().figureRequestRemove(new FigureChangeEvent(this, r, e));
+				listener().figureRequestRemove(new FigureChangeEvent(new NewClass8FigureChangeEvent(this, r, e)));
 			}
 			else {
 				super.figureRequestRemove(e);

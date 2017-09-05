@@ -40,9 +40,9 @@ public class FigureChangeEvent extends EventObject {
 		myRectangle = EMPTY_RECTANGLE;
 	}
 
-	public FigureChangeEvent(Figure newSource, Rectangle newRect, FigureChangeEvent nestedEvent) {
-		this(newSource, newRect);
-		myNestedEvent = nestedEvent;
+	public FigureChangeEvent(NewClass8FigureChangeEvent Object) {
+		this(Object.newSource, Object.newRect);
+		myNestedEvent = Object.nestedEvent;
 	}
 
 	/**
