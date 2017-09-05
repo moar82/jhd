@@ -79,8 +79,7 @@ public  class ElbowConnection extends LineConnection {
 			Rectangle r1 = getStartConnector().owner().displayBox();
 			Rectangle r2 = getEndConnector().owner().displayBox();
 
-			int dir = Geom.direction(r1.x + r1.width/2, r1.y + r1.height/2,
-						r2.x + r2.width/2, r2.y + r2.height/2);
+			int dir = Geom.direction(new NewClass10Geom(r1.x + r1.width/2, r1.y + r1.height/2, r2.x + r2.width/2, r2.y + r2.height/2));
 			if (dir == Geom.NORTH || dir == Geom.SOUTH) {
 				fPoints.add(new Point(start.x, (start.y + end.y)/2));
 				fPoints.add(new Point(end.x, (start.y + end.y)/2));

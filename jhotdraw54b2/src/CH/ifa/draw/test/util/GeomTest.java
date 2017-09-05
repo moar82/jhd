@@ -11,6 +11,7 @@
 package CH.ifa.draw.test.util;
 
 import CH.ifa.draw.util.Geom;
+import CH.ifa.draw.util.NewClass10Geom;
 import junit.framework.TestCase;
 // JUnitDoclet begin import
 // JUnitDoclet end import
@@ -99,7 +100,7 @@ extends TestCase
 	// JUnitDoclet begin javadoc_method direction()
 	/**
 	 * Method testDirection is testing direction
-	 * @see CH.ifa.draw.util.Geom#direction(int, int, int, int)
+	 * @see CH.ifa.draw.util.Geom#direction(NewClass10Geom)
 	 */
 	// JUnitDoclet end javadoc_method direction()
 	public void testDirection() throws Exception {

@@ -63,11 +63,12 @@ public class Geom {
 	/**
 	 * Returns the direction NORTH, SOUTH, WEST, EAST from
 	 * one point to another one.
+	 * @param Object TODO
 	 */
-	static public int direction(int x1, int y1, int x2, int y2) {
+	static public int direction(NewClass10Geom Object) {
 		int direction = 0;
-		int vx = x2 - x1;
-		int vy = y2 - y1;
+		int vx = Object.x2 - Object.x1;
+		int vy = Object.y2 - Object.y1;
 
 		if (vy < vx && vx > -vy) {
 			direction = EAST;
