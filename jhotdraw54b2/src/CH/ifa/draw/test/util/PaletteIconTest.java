@@ -13,6 +13,7 @@ package CH.ifa.draw.test.util;
 // JUnitDoclet begin import
 import CH.ifa.draw.util.PaletteIcon;
 import CH.ifa.draw.util.Iconkit;
+import CH.ifa.draw.util.NewClass4PaletteIcon;
 import CH.ifa.draw.application.DrawApplication;
 import CH.ifa.draw.framework.JHotDrawRuntimeException;
 import CH.ifa.draw.test.JHDTestCase;
@@ -83,7 +84,7 @@ extends JHDTestCase
 			// ignore exception
 		}
 
-		return new PaletteIcon(new Dimension(24, 24), im[0], im[1], im[2]);
+		return new PaletteIcon(new NewClass4PaletteIcon(new Dimension(24, 24), im[0], im[1], im[2]));
 		// JUnitDoclet end method testcase.createInstance
 	}
 

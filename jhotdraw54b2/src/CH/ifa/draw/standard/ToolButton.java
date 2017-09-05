@@ -56,7 +56,7 @@ public class ToolButton extends PaletteButton implements ToolListener {
 			// ignore exception
 		}
 
-		setPaletteIcon(new PaletteIcon(new Dimension(24,24), im[0], im[1], im[2]));
+		setPaletteIcon(new PaletteIcon(new NewClass4PaletteIcon(new Dimension(24,24), im[0], im[1], im[2])));
 		setTool(tool);
 		setName(name);
 

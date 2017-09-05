@@ -27,11 +27,11 @@ public  class PaletteIcon extends Object {
 	Image       fSelected;
 	Dimension   fSize;
 
-	public PaletteIcon(Dimension size, Image normal, Image pressed, Image selected) {
-		fSize = size;
-		fNormal = normal;
-		fPressed = pressed;
-		fSelected = selected;
+	public PaletteIcon(NewClass4PaletteIcon Object) {
+		fSize = Object.size;
+		fNormal = Object.normal;
+		fPressed = Object.pressed;
+		fSelected = Object.selected;
 	}
 
 	public Image normal() { return fNormal; }
