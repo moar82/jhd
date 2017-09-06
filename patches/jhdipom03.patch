@@ -1,0 +1,78 @@
+diff --git a/jhotdraw54b2/src/CH/ifa/draw/contrib/GraphicalCompositeFigure.java b/jhotdraw54b2/src/CH/ifa/draw/contrib/GraphicalCompositeFigure.java
+index eb51c0e..9830c19 100644
+--- a/jhotdraw54b2/src/CH/ifa/draw/contrib/GraphicalCompositeFigure.java
++++ b/jhotdraw54b2/src/CH/ifa/draw/contrib/GraphicalCompositeFigure.java
+@@ -321,7 +321,7 @@ public class GraphicalCompositeFigure extends CompositeFigure implements Layouta
+ 		if (listener() != null) {
+ 			if (includes(e.getFigure())) {
+ 				Rectangle r = invalidateRectangle(displayBox());
+-				listener().figureRequestRemove(new FigureChangeEvent(this, r, e));
++				listener().figureRequestRemove(new FigureChangeEvent(new NewClass8FigureChangeEvent(this, r, e)));
+ 			}
+ 			else {
+ 				super.figureRequestRemove(e);
+diff --git a/jhotdraw54b2/src/CH/ifa/draw/figures/BorderDecorator.java b/jhotdraw54b2/src/CH/ifa/draw/figures/BorderDecorator.java
+index 415dc97..a316977 100644
+--- a/jhotdraw54b2/src/CH/ifa/draw/figures/BorderDecorator.java
++++ b/jhotdraw54b2/src/CH/ifa/draw/figures/BorderDecorator.java
+@@ -91,7 +91,7 @@ public  class BorderDecorator extends DecoratorFigure {
+ 	public void figureInvalidated(FigureChangeEvent e) {
+ 		Rectangle rect = e.getInvalidatedRectangle();
+ 		rect.grow(getBorderOffset().x, getBorderOffset().y);
+-		super.figureInvalidated(new FigureChangeEvent(this, rect, e));
++		super.figureInvalidated(new FigureChangeEvent(new NewClass8FigureChangeEvent(this, rect, e)));
+ 	}
+ 
+ 	public Insets connectionInsets() {
+diff --git a/jhotdraw54b2/src/CH/ifa/draw/figures/TextFigure.java b/jhotdraw54b2/src/CH/ifa/draw/figures/TextFigure.java
+index 4dbf266..45b5d07 100644
+--- a/jhotdraw54b2/src/CH/ifa/draw/figures/TextFigure.java
++++ b/jhotdraw54b2/src/CH/ifa/draw/figures/TextFigure.java
+@@ -396,7 +396,7 @@ public class TextFigure
+ 	public void figureRemoved(FigureChangeEvent e) {
+ 		if (listener() != null) {
+ 			Rectangle rect = invalidateRectangle(displayBox());
+-			listener().figureRemoved(new FigureChangeEvent(this, rect, e));
++			listener().figureRemoved(new FigureChangeEvent(new NewClass8FigureChangeEvent(this, rect, e)));
+ 		}
+ 	}
+ 
+diff --git a/jhotdraw54b2/src/CH/ifa/draw/framework/FigureChangeEvent.java b/jhotdraw54b2/src/CH/ifa/draw/framework/FigureChangeEvent.java
+index 21d8376..c16613f 100644
+--- a/jhotdraw54b2/src/CH/ifa/draw/framework/FigureChangeEvent.java
++++ b/jhotdraw54b2/src/CH/ifa/draw/framework/FigureChangeEvent.java
+@@ -40,9 +40,9 @@ public class FigureChangeEvent extends EventObject {
+ 		myRectangle = EMPTY_RECTANGLE;
+ 	}
+ 
+-	public FigureChangeEvent(Figure newSource, Rectangle newRect, FigureChangeEvent nestedEvent) {
+-		this(newSource, newRect);
+-		myNestedEvent = nestedEvent;
++	public FigureChangeEvent(NewClass8FigureChangeEvent Object) {
++		this(Object.newSource, Object.newRect);
++		myNestedEvent = Object.nestedEvent;
+ 	}
+ 
+ 	/**
+diff --git a/jhotdraw54b2/src/CH/ifa/draw/framework/NewClass8FigureChangeEvent.java b/jhotdraw54b2/src/CH/ifa/draw/framework/NewClass8FigureChangeEvent.java
+new file mode 100644
+index 0000000..ca4e221
+--- /dev/null
++++ b/jhotdraw54b2/src/CH/ifa/draw/framework/NewClass8FigureChangeEvent.java
+@@ -0,0 +1,15 @@
++package CH.ifa.draw.framework;
++
++import java.awt.Rectangle;
++
++public class NewClass8FigureChangeEvent {
++	public Figure newSource;
++	public Rectangle newRect;
++	public FigureChangeEvent nestedEvent;
++
++	public NewClass8FigureChangeEvent(Figure newSource, Rectangle newRect, FigureChangeEvent nestedEvent) {
++		this.newSource = newSource;
++		this.newRect = newRect;
++		this.nestedEvent = nestedEvent;
++	}
++}
+\ No newline at end of file

@@ -1,0 +1,77 @@
+diff --git a/jhotdraw54b2/src/CH/ifa/draw/figures/ElbowConnection.java b/jhotdraw54b2/src/CH/ifa/draw/figures/ElbowConnection.java
+index 580bf2b..94d8879 100644
+--- a/jhotdraw54b2/src/CH/ifa/draw/figures/ElbowConnection.java
++++ b/jhotdraw54b2/src/CH/ifa/draw/figures/ElbowConnection.java
+@@ -79,8 +79,7 @@ public  class ElbowConnection extends LineConnection {
+ 			Rectangle r1 = getStartConnector().owner().displayBox();
+ 			Rectangle r2 = getEndConnector().owner().displayBox();
+ 
+-			int dir = Geom.direction(r1.x + r1.width/2, r1.y + r1.height/2,
+-						r2.x + r2.width/2, r2.y + r2.height/2);
++			int dir = Geom.direction(new NewClass10Geom(r1.x + r1.width/2, r1.y + r1.height/2, r2.x + r2.width/2, r2.y + r2.height/2));
+ 			if (dir == Geom.NORTH || dir == Geom.SOUTH) {
+ 				fPoints.add(new Point(start.x, (start.y + end.y)/2));
+ 				fPoints.add(new Point(end.x, (start.y + end.y)/2));
+diff --git a/jhotdraw54b2/src/CH/ifa/draw/test/util/GeomTest.java b/jhotdraw54b2/src/CH/ifa/draw/test/util/GeomTest.java
+index 8eeed21..9109bd6 100644
+--- a/jhotdraw54b2/src/CH/ifa/draw/test/util/GeomTest.java
++++ b/jhotdraw54b2/src/CH/ifa/draw/test/util/GeomTest.java
+@@ -11,6 +11,7 @@
+ package CH.ifa.draw.test.util;
+ 
+ import CH.ifa.draw.util.Geom;
++import CH.ifa.draw.util.NewClass10Geom;
+ import junit.framework.TestCase;
+ // JUnitDoclet begin import
+ // JUnitDoclet end import
+@@ -99,7 +100,7 @@ extends TestCase
+ 	// JUnitDoclet begin javadoc_method direction()
+ 	/**
+ 	 * Method testDirection is testing direction
+-	 * @see CH.ifa.draw.util.Geom#direction(int, int, int, int)
++	 * @see CH.ifa.draw.util.Geom#direction(NewClass10Geom)
+ 	 */
+ 	// JUnitDoclet end javadoc_method direction()
+ 	public void testDirection() throws Exception {
+diff --git a/jhotdraw54b2/src/CH/ifa/draw/util/Geom.java b/jhotdraw54b2/src/CH/ifa/draw/util/Geom.java
+index d973c38..d2de588 100644
+--- a/jhotdraw54b2/src/CH/ifa/draw/util/Geom.java
++++ b/jhotdraw54b2/src/CH/ifa/draw/util/Geom.java
+@@ -63,11 +63,12 @@ public class Geom {
+ 	/**
+ 	 * Returns the direction NORTH, SOUTH, WEST, EAST from
+ 	 * one point to another one.
++	 * @param Object TODO
+ 	 */
+-	static public int direction(int x1, int y1, int x2, int y2) {
++	static public int direction(NewClass10Geom Object) {
+ 		int direction = 0;
+-		int vx = x2 - x1;
+-		int vy = y2 - y1;
++		int vx = Object.x2 - Object.x1;
++		int vy = Object.y2 - Object.y1;
+ 
+ 		if (vy < vx && vx > -vy) {
+ 			direction = EAST;
+diff --git a/jhotdraw54b2/src/CH/ifa/draw/util/NewClass10Geom.java b/jhotdraw54b2/src/CH/ifa/draw/util/NewClass10Geom.java
+new file mode 100644
+index 0000000..f2e4de2
+--- /dev/null
++++ b/jhotdraw54b2/src/CH/ifa/draw/util/NewClass10Geom.java
+@@ -0,0 +1,15 @@
++package CH.ifa.draw.util;
++
++public class NewClass10Geom {
++	public int x1;
++	public int y1;
++	public int x2;
++	public int y2;
++
++	public NewClass10Geom(int x1, int y1, int x2, int y2) {
++		this.x1 = x1;
++		this.y1 = y1;
++		this.x2 = x2;
++		this.y2 = y2;
++	}
++}
+\ No newline at end of file

@@ -1,0 +1,6 @@
+jhotdraw54b2/refgen/
+*.log
+jhotdraw54b2/bin/.gitignore
+
+java.lang.NullPointerException
+src: CH.ifa.draw.contrib.zoom.DoubleBufferImage method name:getScaledInstance
